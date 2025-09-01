@@ -1,7 +1,12 @@
-import "./style/global.css"
+import Page from "../Page";
+import "./style/global.css";
 
 const App = () => {
-  return <>hello</>;
+  return (
+    <div className=" w-full h-full">
+      <Page />
+    </div>
+  );
 };
 
 export default App;
