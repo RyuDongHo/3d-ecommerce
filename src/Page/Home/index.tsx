@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import ShowRoom from "./ui/ShowRoom";
-import { OrbitControls } from "@react-three/drei";
 
 const Home = () => {
   return (
@@ -9,13 +8,7 @@ const Home = () => {
         shadows
         camera={{ fov: 90, position: [5, 5, 5], near: 0.1, far: 1000 }}
       >
-        <color attach="background" args={["white"]} />
-        <OrbitControls
-          // minAzimuthAngle={-Math.PI / 4}
-          // maxAzimuthAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 1}
-        />
+        <color attach="background" args={["green"]} />
         <ShowRoom />
       </Canvas>
     </div>

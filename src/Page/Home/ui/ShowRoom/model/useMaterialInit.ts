@@ -12,9 +12,12 @@ const useMaterialInit = (props: UseMaterialInitProps) => {
       // child가 Mesh라면 metalness 수정
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
-        const material = mesh.material as THREE.Material;
+        const material = mesh.material;
         if ("metalness" in material) {
-          (material as THREE.MeshPhysicalMaterial).metalness = 0.6;
+          material.metalness = 0.2;
+        }
+        if ("castShadow" in mesh) {
+          mesh.castShadow = true;
         }
       }
       // child가 Group/Object3D라면 내부 mesh 모두 metalness 수정
@@ -26,9 +29,15 @@ const useMaterialInit = (props: UseMaterialInitProps) => {
         (child as THREE.Group).traverse((obj) => {
           if ((obj as THREE.Mesh).isMesh) {
             const mesh = obj as THREE.Mesh;
-            const material = mesh.material as THREE.Material;
+            const material = mesh.material;
+            if (mesh.name === "body_5" && "emissive" in material) {
+              material.emissive = new THREE.Color(0.1, 0.1, 0.1); // 약간 발광
+            }
             if ("metalness" in material) {
-              (material as THREE.MeshPhysicalMaterial).metalness = 0.6;
+              material.metalness = 0.2;
+            }
+            if ("castShadow" in mesh) {
+              mesh.castShadow = true;
             }
           }
         });
