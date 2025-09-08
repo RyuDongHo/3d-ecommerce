@@ -24,7 +24,7 @@ const ShowRoom = () => {
   useMaterialInit({ GLTFRef });
   console.log(landRover.scene);
 
-  const [isTurning, setIsTurning] = useState<boolean>(true);
+  const [isTurning, setIsTurning] = useState<boolean>(false);
   const [angle, setAngle] = useState<number>(0);
   const dis = 4;
 
