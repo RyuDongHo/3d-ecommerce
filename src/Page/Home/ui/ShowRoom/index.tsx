@@ -8,7 +8,7 @@ import useMaterialInit from "./model/useMaterialInit";
 const ShowRoom = () => {
   const landRover = useLoader(
     GLTFLoader,
-    "/src/Shared/assets/3dModel/range_rover_v2.glb"
+    "/3dModel/range_rover_v2.glb"
   );
   const spotLightRef = useRef<THREE.SpotLight>(null!);
   const directionalLightRef = useRef<THREE.DirectionalLight>(null!);
