@@ -1,16 +1,11 @@
-# 🛒 Simple 3D E-commerce Website
 
-A minimal **3D e-commerce demo website** built with **React + React Three Fiber (r3f)**.  
-This project showcases how 3D models can enhance product browsing and interaction in an online store.
+# Simple R3F Example Website
 
----
+This project is a personal learning website for r3f (react-three-fiber).
+It is operated solely for study and practice purposes, and does not generate any revenue.
+It is not related to any commercial or profit-making activities.
 
-## ✨ Features
-- 3D product viewer with orbit/zoom controls
-- Basic product listing and details page
-- Add-to-cart functionality
-- Responsive design (desktop & mobile)
-- Lightweight and easy to extend
+A minimal **Simple R3F Example website** built with **React + React Three Fiber (r3f)**. 
 
 ---
 
