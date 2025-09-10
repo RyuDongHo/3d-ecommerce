@@ -2,7 +2,7 @@ import { DRACOLoader, GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { CameraControls, ContactShadows, useGLTF } from "@react-three/drei";
+import { CameraControls, ContactShadows } from "@react-three/drei";
 import useColorChange from "./model/useColorChange";
 import useMaterialInit from "./model/useMaterialInit";
 
