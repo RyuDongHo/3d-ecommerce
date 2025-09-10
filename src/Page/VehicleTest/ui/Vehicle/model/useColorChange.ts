@@ -15,6 +15,7 @@ const useColorChange = (props: UseColorChangeProps) => {
     const intersects = raycaster.intersectObjects(objects.scene.children, true);
 
     if (intersects.length > 0) {
+      console.log(intersects[0].object);
       const obj = intersects[0].object as THREE.Mesh;
       const material = obj.material as THREE.MeshStandardMaterial;
       const clonedMaterial = material.clone();

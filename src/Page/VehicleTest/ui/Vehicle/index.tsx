@@ -1,4 +1,4 @@
-import { DRACOLoader, GLTFLoader } from "three/examples/jsm/Addons.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -7,14 +7,9 @@ import useColorChange from "./model/useColorChange";
 import useMaterialInit from "./model/useMaterialInit";
 
 const Vehicle = () => {
-  const landRover = useLoader(
+  const vehicle = useLoader(
     GLTFLoader,
-    "/3dModel/range_rover_v2_draco.glb",
-    (loader) => {
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.6/");
-      loader.setDRACOLoader(dracoLoader);
-    }
+    "/3dModel/vehicle.glb"
   );
   const spotLightRef = useRef<THREE.SpotLight>(null!);
   const directionalLightRef = useRef<THREE.DirectionalLight>(null!);
@@ -22,13 +17,13 @@ const Vehicle = () => {
   // useHelper(spotLightRef, THREE.SpotLightHelper, "cyan");
   // useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1, "yellow");
   const cameraControlsRef = useRef<CameraControls>(null!);
-
+  console.log(vehicle);
   const [carClickHandler] = useColorChange({
-    objects: landRover,
+    objects: vehicle,
     cameraControlsRef: cameraControlsRef,
   });
   useMaterialInit({ GLTFRef });
-  console.log(landRover.scene);
+  console.log(vehicle.scene);
 
   const [isTurning, setIsTurning] = useState<boolean>(false);
   const [angle, setAngle] = useState<number>(0);
@@ -64,15 +59,15 @@ const Vehicle = () => {
       <CameraControls
         ref={cameraControlsRef}
         dollyToCursor={true}
-        minDistance={3}
-        maxDistance={10}
+        minDistance={6}
+        maxDistance={12}
         maxPolarAngle={Math.PI / 2}
       />
       <directionalLight
         ref={directionalLightRef}
         position={[7, 7, 7]}
         target-position={[0, 0, 0]}
-        intensity={1}
+        intensity={3}
       />
       <spotLight
         ref={spotLightRef}
@@ -86,7 +81,7 @@ const Vehicle = () => {
       <primitive
         position={[0, 0, 0.3]}
         ref={GLTFRef}
-        object={landRover.scene}
+        object={vehicle.scene}
         onClick={carClickHandler}
       />
       <ContactShadows
