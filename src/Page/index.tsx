@@ -1,11 +1,14 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
+import VehicleTest from "./VehicleTest";
+import SphereTest from "./SphereTest";
 
 const Page = () => {
   return (
     <main className="w-full h-full">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<VehicleTest />} />
+        <Route path="/vehicle" element={<VehicleTest />} />
+        <Route path="/sphere" element={<SphereTest />} />
       </Routes>
     </main>
   );
